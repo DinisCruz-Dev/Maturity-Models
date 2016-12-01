@@ -1,18 +1,30 @@
-module.exports = function () {
+require('fluentnode')
+
+module.exports = function (wallaby) {
     return {
         files: [
-            'src/**/*.coffee',
-            'views/**/*.pug', 
-            { pattern: 'data/**/*', instrument: false, load: false, ignore: false },
+            'code/api/src/**/*.coffee',
+            'code/api/views/**/*.pug',
+            { pattern: 'data/**/*'             , instrument: false, load: false, ignore: false },
+            { pattern: 'code/ui/src/services/*', instrument: false, load: false, ignore: false },
         ],
 
         tests: [
-            'test/**/*.coffee',
-            'test/*.coffee'
+            'code/api/test/**/*.coffee',
+            'code/api/test/*.coffee'
         ],
 
         env: {
             type: 'node'
+        },
+        setup: function (wallaby)
+            {
+                console.log('running tests')
+                //console.log(wallaby)
+            },
+        workers: {
+            initial: 1,         // without these sometimes the fluentnode apis
+            regular: 1          // are not detected
         }
     };
 };

@@ -4,8 +4,8 @@
   "description": "Maturity Models",
   "main": "server.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive -R list",
-    "dev" : "cd ui; gulp watch",
+    "test": "node ./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive -R list code/api/test",
+    "dev": "cd code/ui; gulp watch",
     "start": "node server.js "
   },
   "repository": {
@@ -31,10 +31,14 @@
     "express-load": "^1.1.15",
     "file-stream-rotator": "0.0.6",
     "fluentnode": "*",
+    "loggly": "^1.1.1",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
     "pug": "2.0.0-beta2",
-    "serve-index": "^1.7.3"
+    "serve-index": "^1.7.3",
+    "winston": "^2.3.0",
+    "winston-loggly-bulk": "^1.3.3",
+    "winston-logsene": "^1.2.1"
   },
   "devDependencies": {
     "supertest": "^1.2.0"

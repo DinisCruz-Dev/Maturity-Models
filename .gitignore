@@ -10,4 +10,5 @@ bower_components
 coverage
 angular/.dist
 ui/.dist
-data/other
+data/private
+set-log.sh
